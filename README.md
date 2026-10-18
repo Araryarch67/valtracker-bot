@@ -52,6 +52,11 @@ Tombolnya bisa dipakai siapa aja di channel (pesan tracker-nya dipakai bareng), 
 
 ## Deploy ke Render
 
+Cara cepat: di https://dashboard.render.com → **New** → **Blueprint** → pilih repo ini. Semua setting diambil
+dari `render.yaml` (Web Service free, region Singapore), tinggal isi `DISCORD_TOKEN` & `HENRIK_API_KEY`, lalu lanjut ke langkah 4.
+
+Cara manual:
+
 1. Upload project ke GitHub (repo private). `.env`, `.venv` dan `links.json` sudah di-ignore, jangan di-upload manual.
 2. Di https://dashboard.render.com → **New** → pilih **Background Worker** (berbayar, paling stabil)
    atau **Web Service** (ada free tier, tapi tidur kalau 15 menit nggak ada request HTTP masuk).

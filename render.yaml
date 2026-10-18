@@ -1,0 +1,18 @@
+# Blueprint Render: dashboard.render.com → New → Blueprint → pilih repo ini.
+# Pakai Web Service free; bot buka health check di PORT biar Render anggap service-nya sehat.
+services:
+  - type: web
+    name: valtracker-bot
+    runtime: python
+    plan: free
+    region: singapore  # paling dekat ke Indonesia
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /
+    autoDeploy: true  # tiap push ke main langsung deploy ulang
+    envVars:
+      # sync: false = Render minta diisi manual pas bikin Blueprint (rahasia, nggak disimpan di repo)
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: HENRIK_API_KEY
+        sync: false
